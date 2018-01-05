@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>How Teams Get Microservices Wrong From the Start</title>
+<meta content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' name='viewport'>
+<link href='/stylesheets/blog_post.css?cb=1514417693' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="//use.typekit.net/grn2mfu.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+</head>
+<body>
+<article>
+<div class='date'>Nov 28, 2017</div>
+<h1>How Teams Get Microservices Wrong From the Start</h1>
+<p><img src="/blog_posts/how_teams_get_microservices_wrong/feature-image.jpg" alt=""></p>
+
+<p>When I first mentioned the concept of microservices to my engineering team, I was surprised by how quickly everyone researched the idea and then jumped to the idea that our monolith should be split up into tiny APIs that were each responsible for a model in our existing Rails application.</p>
+
+<p>From the research I’d done, I knew that it was dangerous to build a bunch of microservices without careful consideration about size, boundaries, and other tradeoffs.</p>
+
+<p>So I probed my team with questions. Why so many services? Why not less? What were the tradeoffs?</p>
+
+<p>What I found was that people on my team were jumping to conclusions based on shallow but dangerously firm notions of what a microservice was. They held knowledge that microservices were small API’s pieced together to create whole systems. But they weren’t aware of the intricate tradeoffs and design considerations that can mean the difference between success and failure. They were pitching architectures with little ability to justify or reason about them. They had simply jumped to the conclusion of creating a bunch of API’s because that’s what they thought microservices were supposed to be.</p>
+
+<p>I wish I could say this was a unique occurrence, but I’ve worked on several teams where this has happened. If you’re reading this, you probably have to.</p>
+
+<p>Why does this happen? And what is a microservice, anyway?</p>
+
+<h3>Poorly named, ambiguously defined</h3>
+
+<p>For a profession that stresses the importance of naming things well, we’ve done ourselves a disservice with microservices. The problem is that that there is nothing inherently “micro” about microservices. Microservices do not have to be small. Some are, but size is relative and there’s no standard of unit of measure across organizations. A “small” service at one company might be one million lines of code while far less at another.</p>
+
+<p>Some argue that microservices aren’t a new thing at all and are rather a rebranding of Service Oriented Architectures, while others advocate for viewing microservices as an implementation of SOA similar to how Scrum is an implementation of Agile.</p>
+
+<p>This poor naming is one of the reasons behind misconceptions and misapplication of microservices. Lots of developers, even those in 3-man teams, are jumping on the bandwagon of splitting up apps into far too many services without understanding what microservices really are.</p>
+
+<p>When a popular, attractive-sounding term like “microservices” flies around, it’s easy for the the concepts behind it to get lost and distorted. Martin Fowler calls this Semantic Diffusion.</p>
+
+<p>Semantic diffusion is essentially a succession of Chinese whispers where a different group of people to the originators of a term start talking about it without being careful about following the original definition. These people are listened to by a further group which then goes on to add their own distortions. After a few of these hand-offs it’s easy to lose the key meaning of the term unless you make the point of going back to the originators.</p>
+
+<p>The misconceptions don’t just affect people who want to use microservices, it also stokes the fires of those that dismayed by the industry hopping on the microservices bandwagon without deep understanding of its concepts.</p>
+
+<p>Most critique is not necessarily a critique of microservices themselves, but rather criticism of failed application of microservices coupled to (and likely caused by) a misunderstanding of microservices.</p>
+
+<p>Without this knowledge, failures are attributed to the entire concept of microservices rather than the failure to use them successfully.</p>
+
+<h3>The Ideal Definition</h3>
+
+<p>There’s a lot of ambiguity around what microservices are in part because no precise definition exists. Like Agile, microservices are a collection of broad concepts rather than concrete practices.</p>
+
+<p>How exactly the term “microservice” was invented has been documented by Martin
+Fowler:</p>
+
+<blockquote>
+<p>The term “microservice” was discussed at a workshop of software architects near Venice in May, 2011 to describe what the participants saw as a common architectural style that many of them had been recently exploring. In May 2012, the same group decided on “microservices” as the most appropriate name.</p>
+</blockquote>
+
+<p>Jame’s Lewis’s 2012 presentation at 33rd Degree in Krakow titled “Microservices — Java, the Unix Way” presented these new ideas and described microservices as a way of develop software faster by dividing and conquering using Conway’s law to structure teams.</p>
+
+<p>Since then many others have continued to pioneer and advance the concepts around microservices including Fred George, Adrian Cockcroft (Netflix), Martin Fowler (ThoughtWorks), and Sam Newman (ThoughtWorks).</p>
+
+<p>Today’s leading definitions are fairly well aligned…</p>
+
+<p>Sam Newman:</p>
+
+<blockquote>
+<p>Microservices are small, autonomous services that work together.</p>
+</blockquote>
+
+<p>Martin Fowler and James Lewis:</p>
+
+<blockquote>
+<p>In short, the microservice architectural style is an approach to developing a single application as a suite of small services, each running in its own process and communicating with lightweight mechanisms, often an HTTP resource API.</p>
+</blockquote>
+
+<p>The problem with these definitions is that while they are helpful for introducing the idea of microservices, when it comes to time put them into practice, they are not very helpful. Using these definitions, how would you determine whether it makes more sense to have 10 tiny services versus five medium-sized ones?</p>
+
+<p>In his book <em>Building Microservices</em>, Sam Newman explains that the right size is “Small enough and no smaller… We seem to have a very good sense of what is too big, and so it could be argued that once a piece of code no longer feels too big, it’s probably small enough.” Again, this doesn’t help you make a clear decision.</p>
+
+<p>Ambiguous descriptions of microservices aren’t useful other than as an introduction. When it comes time to put microservices into practice, you need to find other ways to align your team.</p>
+
+<h3>Getting alignment on your team</h3>
+
+<p>How do you align your team when no precise definitions of microservices exist? The most important thing when talking about microservices on a team is to ensure that you are grounded in a common starting point.</p>
+
+<p>But ambiguous definitions don’t help with this. It would be like trying to put Agile into practice without context for what you are trying to achieve, or an understanding of precise methodologies like Scrum.</p>
+
+<p>Knowing the dangers of too eagerly hopping on the microservices bandwagon, a team I worked on tried not to stall on definitions and instead focused on defining the benefits we were trying to achieve with microservices adoption. The following are the three areas we focused on and lessons learned from each piece of our microservices implementation.</p>
+
+<h4>1. Shipping software faster</h4>
+
+<p>Our main application was a large codebase with several small teams of developers trying to build features for different purposes. This meant that every change had to try to satisfy the different groups. For example, a database change that was only serving one group would have to be reviewed and accepted by others that didn’t have as much context. This was tedious and slowed us down.</p>
+
+<p>Having different groups of developers sharing the same codebase also meant that the code continually grew more complex in undeliberate ways. As the codebase grew larger, no one on the team could own it and make sure all the parts were organized and fit together optimally. This also made deploying a scary ordeal. A one-line change to our application still required the whole thing to be deployed in order to push out the change. Because deploying our large application was high-risk, our QA process grew and we deployed less.</p>
+
+<p>With a microservices architecture, we hoped to be able to divide our code up so different teams of developers could fully own them. This would enable teams to innovate much more quickly without tedious design, review, and deployment processes. We also hoped that by having smaller codebases worked on by fewer developers, our codebases would be easier to develop, test, and keep well organized.</p>
+
+<h4>2. Flexibility with technology choices</h4>
+
+<p>Our main application was large, built with Ruby on Rails with a custom JavaScript framework and complex build processes. Several parts of our application hit major performance issues that were difficult to fix and brought down the rest of the application. We saw an opportunity to rewrite these parts of our application using a better approach. Our codebase was intertangled, which make rewriting feel extremely big and costly.</p>
+
+<p>At the same time, one of our frontend teams wanted to pull away from our custom JavaScript framework and build product features with a newer framework like React. But mixing React into our existing application and complex frontend build process seemed expensive to configure.</p>
+
+<p>As time went on, our teams grew frustrated with the feeling of being trapped in a codebase that was too big and expensive to fix or replace. By adopting microservices architecture, we hoped that keeping individual services smaller would mean that the cost to replace them with a better implementation would be much easier to manage. We also hoped to be able to pick the right tool for each job rather than being stuck with a one-size-fits-all approach. We’d have the flexibility to use multiple technologies across our different applications as we saw fit. If a team wanted to use something other than Ruby for better performance or switch from our custom JavaScript framework to React, they could
+do so.</p>
+
+<h4>3. Microservices are not a free lunch</h4>
+
+<p>In addition to outlining the benefits we hoped to achieve, we also made sure we were being realistic about the costs and challenges associated with building and managing microservices. Developing, hosting, and managing numerous services requires substantial overhead (and orchestrating a substantial number of different open source tools). A single, monolithic codebase running on a few processes can easily translate into a couple dozen processes across a handful of services, requiring load balancers, messaging layers, and clustering for resiliency. Managing all of this requires substantial skill and tooling.</p>
+
+<p>Furthermore, microservices involve distributed systems that introduce a whole host of concerns such as network latency, fault tolerance, transactions, unreliable networks, and asynchronicity.</p>
+
+<h3>Setting your own microservices path</h3>
+
+<p>Once we defined the benefits and costs of microservices, we could talk about architecture without falling into counterproductive debates about who was doing microservices right or wrong. Instead of trying to find our way using others’
+descriptions or examples of microservices, we instead focused on the core problems we were trying to solve.</p>
+
+<ul>
+<li>How would having more services help us ship software faster in the next six to
+12 months?</li>
+<li>Were there strong technical advantages to using a specific tool for a portion of
+our system?</li>
+<li>Did we foresee wanting to replace one of the systems with a more appropriate one
+down the line?</li>
+<li>How did we want to structure our teams around services as we hired more people?</li>
+<li>Was the productivity gain from having more services worth the foreseeable costs?</li>
+</ul>
+
+<p>In summary, here are five recommended steps for aligning your team before jumping into microservices:</p>
+
+<ol>
+<li> Learn about microservices while agreeing that there is no “right” definition.</li>
+<li> Define a common set of goals and objectives to avoid counterproductive debates.</li>
+<li> Discuss and memorialize your anticipated benefits and costs of adopting
+microservices.</li>
+<li> Avoid too eagerly hopping on the microservices bandwagon; be open to creative
+ideas and spirited debate about how best to architect your systems.</li>
+<li> Stay rooted in the benefits and costs your team identified.</li>
+</ol>
+
+<p>Focus on making sure the team has a concretely defined set of common goals to work off. It’s more valuable to discuss and define what you’d like to achieve with microservices than it is to try and pin down what a microservice actually is.</p>
+
+</article>
+<script src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+<script src='/javascript/application.js?cb=1514417693'></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-10015302-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</body>
+</html>
