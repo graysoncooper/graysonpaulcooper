@@ -1,65 +1,223 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/4.8.1/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/4.8.1/firebase-auth.js"></script>
-    <script defer src="/__/firebase/4.8.1/firebase-database.js"></script>
-    <script defer src="/__/firebase/4.8.1/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/4.8.1/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
+<head>
+    <meta charset='utf-8'>
+    <title>Abi Noda</title>
+    <link href='/stylesheets/home.css?cb=1514416633' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="//use.typekit.net/grn2mfu.js"></script>
+    <script type="text/javascript">
+    try { Typekit.load(); } catch (e) {}
     </script>
-  </body>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <section>
+            <img src='/images/abi-noda-2.png' width='130'>
+            <h1>Abi Noda</h1>
+            <div class='contact-info'>
+                <a class='icon-comments' href='mailto:a@abinoda.com' title='Email Me'></a>
+                <a class='icon-twitter' href='http://twitter.com/abi' title='Twitter'></a>
+            </div>
+        </section>
+    </header>
+    <article>
+        <div class='lcol'>
+            <section>
+                <h3>Latest posts</h3>
+                <ul>
+                    <li>
+                        <a href='/how-teams-get-microservices-wrong-from-the-start'>How Teams Get Microservices Wrong From the Start</a>
+                    </li>
+                    <li>
+                        <a href='/the-zen-of-muay-thai'>The Zen of Muay Thai</a>
+                    </li>
+                    <li>
+                        <a href='/why-i-listen-to-rap'>Why I Listen to Rap</a>
+                    </li>
+                    <li>
+                        <a href='/first-week-at-santai-muay-thai'>First Week at Santai Muay Thai</a>
+                    </li>
+                    <li>
+                        <a href='/rebooting-libya'>Rebooting Libya</a>
+                    </li>
+                    <li>
+                        <a href='/barrington-startup-incubator'>Barrington Startup Incubator</a>
+                    </li>
+                    <li>
+                        <a href='/white-things'>White Things</a>
+                    </li>
+                    <li>
+                        <a href='/dont-make-me-think'>Don't Make Me Think</a>
+                    </li>
+                    <li>
+                        <a href='/college-essay'>College Essay</a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>I've started</h3>
+                <ul>
+                    <li>
+                        <a href='https://buttercms.com' target='_blank'>ButterCMS</a>
+                    </li>
+                    <li>
+                        <a href='http://orangeqc.com' rel='noindex, nofollow' target='_blank'>OrangeQC</a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>I've worked for</h3>
+                <ul>
+                    <li>
+                        <a href='http://kaplan.com' target='_blank'>Kaplan</a>
+                    </li>
+                    <li>
+                        <a href='http://devbootcamp.com' target='_blank'>Dev Bootcamp</a>
+                    </li>
+                    <li>
+                        <a href='http://openmarketshealth.com' target='_blank'>OpenMarkets</a>
+                    </li>
+                    <li>
+                        <a href='http://barackobama.com' target='_blank'>Barack Obama</a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>Liked articles</h3>
+                <ul>
+                    <li>
+                        <a href='/clippings/Netflix-Culture.pdf' target='_blank'>Netflix's Culture</a>
+                    </li>
+                    <li>
+                        <a href='/clippings/New-York-Times-Innovation-Report.pdf' target='_blank'>Leaked NYTimes Innovation Report</a>
+                    </li>
+                    <li>
+                        <a href='/clippings/The-Making-of-an-Expert.pdf' target='_blank'>"The Making of an Expert"</a>
+                    </li>
+                    <li>
+                        <a href='/clippings/SCARF-model.pdf' target='_blank'>SCARF model of the social brain</a>
+                    </li>
+                    <li>
+                        <a href='/clippings/The-AOL-Way.pdf' target='_blank'>Leaked AOL business plan</a>
+                    </li>
+                    <li>
+                        <a href='/clippings/Lesson-on-Elementary-Worldly-Wisdom.pdf' target='_blank'>Charles Munger speech</a>
+                    </li>
+                    <li>
+                        <a href='/clippings/What-Makes-Online-Content-Viral.pdf' target='_blank'>"What Makes Online Content Viral?"</a>
+                    </li>
+                    <li>
+                        <a href='/clippings/New-York-Times-Innovation-Report.pdf' target='_blank'>Behavior Model for Persuasive Design</a>
+                    </li>
+                    <li>
+                        <a href='/clippings/Scaling-Agile-at-Spotify.pdf' target='_blank'>Scaling Agile at Spotify</a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <div class='rcol'>
+            <section>
+                <h3>
+Book notes
+<span>
+-
+<a href='/reading-list'>see my reading list</a>
+</span>
+</h3>
+                <ul>
+                    <li>
+                        <a href='/book/building-microservices'>Building Microservices</a>
+                    </li>
+                    <li>
+                        <a href='/book/good-to-great'>Good to Great</a>
+                    </li>
+                    <li>
+                        <a href='/book/how-to-win-friends-and-influence-people'>How to Win Friends and Influence People</a>
+                    </li>
+                    <li>
+                        <a href='/book/predictable-revenue'>Predictable Revenue</a>
+                    </li>
+                    <li>
+                        <a href='/book/getting-to-yes'>Getting to Yes</a>
+                    </li>
+                    <li>
+                        <a href='/book/letters-from-a-stoic'>Letters from a Stoic</a>
+                    </li>
+                    <li>
+                        <a href='/book/five-temptations-of-a-ceo'>The Five Temptations of a CEO</a>
+                    </li>
+                    <li>
+                        <a href='/book/five-dysfunctions-of-a-team'>The Five Dysfunctions of a Team</a>
+                    </li>
+                    <li>
+                        <a href='/book/high-output-management'>High Output Management</a>
+                    </li>
+                    <li>
+                        <a href='/book/hbr-on-leadership'>HBR's 10 Must Reads on Leadership</a>
+                    </li>
+                    <li>
+                        <a href='/book/hooked'>Hooked</a>
+                    </li>
+                    <li>
+                        <a href='/book/word-of-mouth-marketing'>Word of Mouth Marketing</a>
+                    </li>
+                    <li>
+                        <a href='/book/trust-me-im-lying'>Trust Me, I'm Lying</a>
+                    </li>
+                    <li>
+                        <a href='/book/influence'>Influence</a>
+                    </li>
+                    <li>
+                        <a href='/book/running-lean'>Running Lean</a>
+                    </li>
+                    <li>
+                        <a href='/book/nail-it-then-scale-it'>Nail It then Scale It</a>
+                    </li>
+                    <li>
+                        <a href='/book/positioning'>Positioning</a>
+                    </li>
+                    <li>
+                        <a href='/book/search-inside-yourself'>Search Inside Yourself</a>
+                    </li>
+                    <li>
+                        <a href='/book/what-to-say-when-you-talk-to-yourself'>What To Say When You Talk To Yourself</a>
+                    </li>
+                    <li>
+                        <a href='/book/the-fearless-mind'>The Fearless Mind</a>
+                    </li>
+                    <li>
+                        <a href='/book/moonwalking-with-einstein'>Moonwalking With Einstein</a>
+                    </li>
+                    <li>
+                        <a href='/book/made-to-stick'>Made To Stick</a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>Me playing flute</h3>
+                <ul>
+                    <li>
+                        <a href='http://www.youtube.com/watch?v=IDcgqj4ALI4'>Nelly - Dilemma</a>
+                    </li>
+                    <li>
+                        <a href='http://www.youtube.com/watch?v=jkrpiWUbU-o'>Ja Rule - Always On Time</a>
+                    </li>
+                    <li>
+                        <a href='/Portrait Of Insanity.mp3'>Portrait of Insanity</a>
+                    </li>
+                    <li>
+                        <a href='/Cafe Music.mp3'>Cafe Music</a>
+                    </li>
+                    <li>
+                        <a href='/Czerny - Fantasia Concertante Opus 256.mp3'>Fantasia Concertante</a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </article>
+</body>
+
 </html>
