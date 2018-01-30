@@ -118,14 +118,13 @@ article {
     margin-left: 0;
     margin-top: 15px;
   }
-  #mobile-margin {
-    margin-top: 160px;
-  }
+
   #mobile-header {
     margin-left: 50%;
   }
   article {
     margin-left: 5%;
+    top: 280px;
   }
 }
 @media (min-width: 730px) {
